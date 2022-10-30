@@ -1,0 +1,190 @@
+{% extends 'common.html' %}
+
+{% block content %}
+<!-- <div class="container-fluid d-flex justify-content-center"></div> -->
+
+
+
+
+  <div class="row mt-5">
+
+    <!-- parameters -->
+<div class="col-sm">
+  <div class="card card-block">
+
+    <h1 class="text-uppercase mb-2 text-secondary" style="text-align:center ;">Parameters</h1>
+
+  <hr class="mt-1 mx-1">
+  <div class="d-flex flex-row justify-content-between px-3 pb-4">
+    <div class="d-flex flex-column"><span class="text-muted">Price Range</span><small class="text-muted text-right">(lacs)</small></div>
+  </div>
+
+  <hr class="mt-2 mx-3">
+  <div class="d-flex flex-row justify-content-between px-3 pb-4">
+    <div class="d-flex flex-column"><span class="text-muted">Segment</span></div>
+  </div>
+
+  <hr class="mt-2 mx-3">
+  <div class="d-flex flex-row justify-content-between px-3 pb-4">
+    <div class="d-flex flex-column"><span class="text-muted">Launch Year</span></div>
+  </div>
+
+  <hr class="mt-2 mx-3">
+  <div class="d-flex flex-row justify-content-between px-3 pb-4">
+    <div class="d-flex flex-column"><span class="text-muted">Fuel Efficiency</span><small class="text-muted">kmpl&ast;</small></div>
+  </div>
+
+  <hr class="mt-2 mx-3">
+  <div class="d-flex flex-row justify-content-between px-3 pb-4">
+    <div class="d-flex flex-column"><span class="text-muted">Engine Capacity</span><small class="text-muted text-right">(Litres)</small></div>
+  </div>
+
+  <hr class="mt-2 mx-3">
+  <div class="d-flex flex-row justify-content-between px-3 pb-4">
+    <div class="d-flex flex-column"><span class="text-muted">Transmission</span></div>
+  </div>
+
+  <hr class="mt-2 mx-3">
+  <div class="d-flex flex-row justify-content-between px-3 pb-4">
+    <div class="d-flex flex-column"><span class="text-muted">Fuel Type</span></div>
+  </div>
+
+  <hr class="mt-2 mx-3">
+  <div class="d-flex flex-row justify-content-between px-3 pb-4">
+    <div class="d-flex flex-column"><span class="text-muted">Fuel Tank Capacity</span><small class="text-muted text-right">(Litres)</small></div>
+  </div>
+
+  <hr class="mt-2 mx-3">
+  <p class="text-uppercase mb-2 text-primary" style="text-align:center ;">Dimensions</p>
+  <div class="d-flex flex-row justify-content-between px-3 pb-4">
+    <div class="d-flex flex-column"><span class="text-muted">Length</span></div>
+  </div>
+
+  <div class="d-flex flex-row justify-content-between px-3 pb-4">
+    <div class="d-flex flex-column"><span class="text-muted">Width</span></div>
+  </div>
+</div>
+</div>
+<!-- 
+  CAR 1
+ -->
+
+    <div class="col-sm">
+      <div class="card border-radius: 20%">
+    {% for i in Car1 %}
+    <h1 class="text-uppercase mb-2 text-primary" style="text-align:center ;">{{i.name}}</h1>
+      <hr class="mt-1 mx-1">
+      <div class="d-flex flex-row justify-content-between px-3 pb-4">
+        <div class="d-flex flex-column"><h5 class="mb-0" style="text-align:center ;">{{i.price}}</h5><small class="text-muted text-right">(lacs)</small></div>
+      </div>
+
+      <hr class="mt-2 mx-3">
+      <div class="d-flex flex-row justify-content-between px-3 pb-4">
+        <div class="d-flex flex-column"><h5 class="mb-0">{{i.segement}}</h5></div>
+      </div>
+
+      <hr class="mt-2 mx-3">
+      <div class="d-flex flex-row justify-content-between px-3 pb-4">
+        <div class="d-flex flex-column"><h5 class="mb-0">{{i.year}}</h5></div>
+      </div>
+
+      <hr class="mt-2 mx-3">
+      <div class="d-flex flex-row justify-content-between px-3 pb-4">
+        <div class="d-flex flex-column"><h5 class="mb-0">{{i.mileage}}</h5><small class="text-muted text-right">(Hwy)</small></div>
+      </div>
+
+      <hr class="mt-2 mx-3">
+      <div class="d-flex flex-row justify-content-between px-3 pb-4">
+        <div class="d-flex flex-column"><h5 class="mb-0">{{i.engine}}</h5><small class="text-muted text-right">(Litres)</small></div>
+      </div>
+
+      <hr class="mt-2 mx-3">
+      <div class="d-flex flex-row justify-content-between px-3 pb-4">
+        <div class="d-flex flex-column"><h5 class="mb-0">{{i.transmission}}</h5></div>
+      </div>
+
+      <hr class="mt-2 mx-3">
+      <div class="d-flex flex-row justify-content-between px-3 pb-4">
+        <div class="d-flex flex-column"><h5 class="mb-0">{{i.fueltype}}</h5></div>
+      </div>
+
+      <hr class="mt-2 mx-3">
+      <div class="d-flex flex-row justify-content-between px-3 pb-4">
+        <div class="d-flex flex-column"><h5 class="mb-0">{{i.fueltank}}</h5><small class="text-muted text-right">(Litres)</small></div>
+      </div>
+
+      <hr class="mt-2 mx-3">
+      <div class="d-flex flex-row justify-content-between px-3 pb-4">
+        <div class="d-flex flex-column"><h5 class="mb-0">{{i.length}}</h5><small class="text-muted text-right">(mm)</small></div>
+      </div>
+
+      <div class="d-flex flex-row justify-content-between px-3 pb-4">
+        <div class="d-flex flex-column"><h5 class="mb-0">{{i.width}}</h5><small class="text-muted text-right">(mm)</small></div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+<!-- CAR 2 -->
+  <div class="col-sm">
+    <div class="card card-block">
+  {% for i in Car2 %}
+  <h1 class="text-uppercase mb-2 text-primary" style="text-align:center ;">{{i.name}}</h1>
+
+    <hr class="mt-1 mx-1">
+    <div class="d-flex flex-row justify-content-between px-3 pb-4">
+      <div class="d-flex flex-column"><h5 class="mb-0" style="text-align:center ;">{{i.price}}</h5><small class="text-muted text-right">(lacs)</small></div>
+    </div>
+
+    <hr class="mt-2 mx-3">
+    <div class="d-flex flex-row justify-content-between px-3 pb-4">
+      <div class="d-flex flex-column"><h5 class="mb-0">{{i.segement}}</h5></div>
+    </div>
+
+    <hr class="mt-2 mx-3">
+    <div class="d-flex flex-row justify-content-between px-3 pb-4">
+      <div class="d-flex flex-column"><h5 class="mb-0">{{i.year}}</h5></div>
+    </div>
+
+    <hr class="mt-2 mx-3">
+    <div class="d-flex flex-row justify-content-between px-3 pb-4">
+      <div class="d-flex flex-column"><h5 class="mb-0">{{i.mileage}}</h5><small class="text-muted text-right">(Hwy)</small></div>
+    </div>
+
+    <hr class="mt-2 mx-3">
+    <div class="d-flex flex-row justify-content-between px-3 pb-4">
+      <div class="d-flex flex-column"><h5 class="mb-0">{{i.engine}}</h5><small class="text-muted text-right">(Litres)</small></div>
+    </div>
+
+    <hr class="mt-2 mx-3">
+    <div class="d-flex flex-row justify-content-between px-3 pb-4">
+      <div class="d-flex flex-column"><h5 class="mb-0">{{i.transmission}}</h5></div>
+    </div>
+
+    <hr class="mt-2 mx-3">
+    <div class="d-flex flex-row justify-content-between px-3 pb-4">
+      <div class="d-flex flex-column"><h5 class="mb-0">{{i.fueltype}}</h5></div>
+    </div>
+
+    <hr class="mt-2 mx-3">
+    <div class="d-flex flex-row justify-content-between px-3 pb-4">
+      <div class="d-flex flex-column"><h5 class="mb-0">{{i.fueltank}}</h5><small class="text-muted text-right">(Litres)</small></div>
+    </div>
+
+    <hr class="mt-2 mx-3">
+    <div class="d-flex flex-row justify-content-between px-3 pb-4">
+      <div class="d-flex flex-column"><h5 class="mb-0">{{i.length}}</h5><small class="text-muted text-right">(mm)</small></div>
+    </div>
+
+    <div class="d-flex flex-row justify-content-between px-3 pb-4">
+      <div class="d-flex flex-column"><h5 class="mb-0">{{i.width}}</h5><small class="text-muted text-right">(mm)</small></div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+    </div>
+
+
+
+
+{% endblock %}

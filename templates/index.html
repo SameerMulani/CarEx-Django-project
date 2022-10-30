@@ -1,0 +1,281 @@
+{% extends 'common.html' %}
+{% load static %}
+<!-- user account details -->
+{% load account %}   
+<!-- user specific details    -->
+{% load socialaccount %}
+
+{% block content %}
+
+<!-- Search Start -->
+<form action="{% url 'search' %}">
+    <div class="container-fluid bg-white pt-3 px-lg-5">
+        <div class="row mx-n2">
+            <div class="col-xl-2 col-lg-4 col-md-6 px-2">
+                <select class="custom-select px-4 mb-3" style="height: 50px;" name="brand_name" id="bname">
+                    <option selected >Brand</option>
+                    {% for i in Brands %}
+                    <option value="{{i.name}}">{{i.name}}</option>
+                    {% endfor %}
+                </select>
+
+                <!-- {{searchForm.as_p}} -->
+
+            </div>
+            <p class="output" id="output1"></p>
+             <div class="col-xl-2 col-lg-4 col-md-6 px-2">
+                <select class="custom-select px-4 mb-3" style="height: 50px;" name="car_name" id="particularCar">
+                    <option selected>Select A Car</option>
+                    {% for j in Cars %}
+                        <option value="{{j.name}}">{{j.name}}</option>
+                    {% endfor %}
+                </select>
+                
+            </div>
+            <div class="col-xl-2 col-lg-4 col-md-6 px-2">
+                    <button class="btn btn-primary btn-block mb-3" type="submit" style="height: 50px;">Search</button>
+            </div>
+        </div>
+    </div>
+</form>
+<hr class="mt-1 mx-1">
+<!-- Search End -->
+
+
+<!-- Carousel Start -->
+<div class="container-fluid p-0" style="margin-bottom: 50px;">
+    <div id="header-carousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="w-100" src="{% static 'img/carousel-1.jpg' %}" alt="Image">
+                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                    <div class="p-3" style="max-width: 900px;">
+                        <h4 class="text-white text-uppercase mb-md-3">Best car for you</h4>
+                        <h1 class="display-1 text-white mb-md-4">Select a car according to your requirements</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="w-100" src="{% static 'img/carousel-2.jpg' %}" alt="Image">
+                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                    <div class="p-3" style="max-width: 900px;">
+                        <h4 class="text-white text-uppercase mb-md-3">Compare Cars</h4>
+                        <h1 class="display-1 text-white mb-md-4">Car Comparison feature</h1>
+                        <a href="{% url 'compare' %}" class="btn btn-primary py-md-3 px-md-5 mt-2">Compare</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#header-carousel" data-slide="prev">
+            <div class="btn btn-dark" style="width: 45px; height: 45px;">
+                <span class="carousel-control-prev-icon mb-n2"></span>
+            </div>
+        </a>
+        <a class="carousel-control-next" href="#header-carousel" data-slide="next">
+            <div class="btn btn-dark" style="width: 45px; height: 45px;">
+                <span class="carousel-control-next-icon mb-n2"></span>
+            </div>
+        </a>
+    </div>
+</div>
+<!-- Carousel End -->
+
+<hr class="mt-1 mx-1">
+<div class="container-fluid py-5">
+    <div class="container pt-5 pb-3">
+        <h1 class="display-4 text-uppercase text-center mb-5">Welcome To <span class="text-primary">CarEx</span></h1>
+        <div class="row justify-content-center">
+            <div class="col-lg-10 text-center">
+                <img class="w-75 mb-4" src="img/about.png" alt="">
+                <p>A website where the you can explore various cars
+                    according to your requirements. Confused between cars? Well we provide you with a platform where you can
+                    compare between cars with respect to their specifications which would
+                    help you to consider all options and select the right car for you.You can login/signup to your account.</p>
+                    <hr class="mt-1 mx-1">
+                    <p class="text-secondary">You can also sign-in via your google account.</p>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-lg-4 mb-2">
+                <div class="d-flex align-items-center bg-light p-4 mb-4" style="height: 150px;">
+                    <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary ml-n4 mr-4" style="width: 100px; height: 100px;">
+                        <i class="fa fa-2x fa-headset text-secondary"></i>
+                    </div>
+                    <h4 class="text-uppercase m-0">Latest Car Updates</h4>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-2">
+                <div class="d-flex align-items-center bg-secondary p-4 mb-4" style="height: 150px;">
+                    <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary ml-n4 mr-4" style="width: 100px; height: 100px;">
+                        <i class="fa fa-2x fa-car text-secondary"></i>
+                    </div>
+                    <h4 class="text-light text-uppercase m-0">Car Comparison</h4>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-2">
+                <div class="d-flex align-items-center bg-light p-4 mb-4" style="height: 150px;">
+                    <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary ml-n4 mr-4" style="width: 100px; height: 100px;">
+                        <i class="fa fa-2x fa-map-marker-alt text-secondary"></i>
+                    </div>
+                    <h4 class="text-uppercase m-0">Wide range of options</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr class="mt-1 mx-1">
+
+
+<div class="container-fluid py-5">
+    <div class="container pt-5 pb-3">
+        <h1 class="display-4 text-uppercase text-center mb-5">CARS</h1>
+        <div class="row">
+            {% for i in Cars %}
+            <div class="col-lg-4 col-md-4 mb-2">
+                <div class="service-item d-flex flex-column justify-content-center px-4 mb-4">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <div class="d-flex align-items-center justify-content-center ml-n4" style="width: 80px; height: 80px;">
+                            <i class="fa fa-2x fa-taxi text-secondary"></i>
+                        </div>
+                    </div>
+                    <h4 class="text-uppercase mb-3 text-primary">{{i.brand}} : {{i.name}}</h4>
+                    <p class="text-uppercase mb-3 text-primary">{{i.segement}}</p>
+                    <h4 class="text-uppercase mb-3 text-secondary">Price : {{i.price}}Lacs</h4>
+                </div>
+                </button>
+            </a> 
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<hr class="mt-1 mx-1">
+
+
+
+<!-- Show Reviews -->
+<h2 class="display-4 text-uppercase text-center mb-5">Reviews</h2>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for i in review %}
+    <div class="col">
+      <div class="card h-100">
+        <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/044.webp" class="card-img-top" alt="Skyscrapers"/>
+        <div class="card-body">
+          <h5 class="card-title">{{i.name}}</h5>
+          <p class="card-text">
+            {{i.description}}
+          </p>
+          <p class="card-text">
+            Rating :{{i.rating}}/10
+          </p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">{{i.created_at}}</small>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+<!-- Contact Start -->
+<hr class="mt-1 mx-1">
+    
+<div class="container-fluid py-4">
+    <div class="container pt-5 pb-3">
+        <h2 class="display-4 text-uppercase text-center mb-5">Write your review</h2>
+        <div class="row">
+            <div class="col-lg-7 mb-2 align-items-center justify-content-center">
+                <div class="contact-form bg-secondary mb-4" style="padding: 30px;">
+                    <form action = "" method="post">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-6 form-group">
+                                <input type="text" class="form-control p-4" placeholder="Your Name" required="required">
+                            </div>
+                            <div class="col-6 form-group">
+                                <input type="number" class="form-control p-4" placeholder="Rate this website"
+                                    required="required">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control py-3 px-4" rows="5" placeholder="Review"
+                                required="required"></textarea>
+                        </div>
+                        <div>
+                            <button class="btn btn-primary py-3 px-5" type="submit">Submit Review</button>
+                        </div>
+
+                    </form>
+                      
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Contact End -->
+
+
+
+<!-- Vendor Start -->
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="owl-carousel vendor-carousel">
+            <div class="bg-light p-4">
+                <img src="img/vendor-1.png" alt="">
+            </div>
+            <div class="bg-light p-4">
+                <img src="img/vendor-2.png" alt="">
+            </div>
+            <div class="bg-light p-4">
+                <img src="img/vendor-3.png" alt="">
+            </div>
+            <div class="bg-light p-4">
+                <img src="img/vendor-4.png" alt="">
+            </div>
+            <div class="bg-light p-4">
+                <img src="img/vendor-5.png" alt="">
+            </div>
+            <div class="bg-light p-4">
+                <img src="img/vendor-6.png" alt="">
+            </div>
+            <div class="bg-light p-4">
+                <img src="img/vendor-7.png" alt="">
+            </div>
+            <div class="bg-light p-4">
+                <img src="img/vendor-8.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Vendor End -->
+
+<script>
+    // const out = document.getElementById('output1')
+    // var text = brand_select.options[brand_select.selectedIndex].text
+
+    // function bfunc(event){
+    //     out.innerHTML = this.options[this.selectedIndex].text
+    // }
+
+    // $("#id_brandName").change(function () {
+    //     let brandcar = $("#BrandForm").attr("data_brandCar");
+    //     let brandname = $(this).val();
+    //     console.log(brandcar);
+    //     console.log(brandname);
+    //     $.ajax({
+    //         url: brandcar,
+    //         data: {
+    //             "brandName": brandname
+    //         },
+    //         success: function (data) {
+    //             $('#particularCar').html(data)
+    //         }
+    //     })
+
+    // })
+
+</script>
+
+{% endblock %}

@@ -1,0 +1,135 @@
+{% extends 'common.html' %}
+
+{% block content %}
+
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header">
+        <h1 class="display-3 text-uppercase text-white mb-3">Car Comparison</h1>
+        <div class="d-inline-flex text-white">
+            <h6 class="text-uppercase m-0"><a class="text-white" href="">Home</a></h6>
+            <h6 class="text-body m-0 px-3">/</h6>
+            <h6 class="text-uppercase text-body m-0">Car Comparison</h6>
+        </div>
+    </div>
+    <!-- class="row mx-n2" -->
+    <h6 class="display-4 text-uppercase text-center text-secondary mb-5">Select any 2 cars</h6>
+    <form action = "{% url 'comparison' %}">
+        <div class="container-fluid bg-white pt-3 px-lg-5">
+            <div class="row mx-n2">
+                <div class="col-xl-2 col-lg-4 col-md-6 px-2">
+                    <select class="custom-select px-4 mb-3" style="height: 50px;" name="brand1">
+                        <option selected >Brand 1</option>
+                        {% for i in Brands %}
+                        <option value="{{i.name}}" name="">{{i.name}}</option>
+                        {% endfor %}
+                    </select>
+                    
+                </div>
+                <div class="col-xl-2 col-lg-4 col-md-6 px-2">
+                    <select class="custom-select px-4 mb-3" style="height: 50px;" name="car1">
+                        <option selected>Car 1</option>
+                        {% for j in Cars %}
+                            <option value="{{j.name}}">{{j.name}}</option>
+                        {% endfor %}
+                    </select>
+                    
+                </div>
+                <div class="col-xl-2 col-lg-4 col-md-6 px-2">
+                    <select class="custom-select px-4 mb-3" style="height: 50px;" name="brand2">
+                        <option selected >Brand 2</option>
+                        {% for i in Brands %}
+                        <option value="{{i.name}}" name="">{{i.name}}</option>
+                        {% endfor %}
+                    </select>
+                    
+                </div>
+                <div class="col-xl-2 col-lg-4 col-md-6 px-2">
+                    <select class="custom-select px-4 mb-3" style="height: 50px;" name="car2">
+                        <option selected>Car 2</option>
+                        {% for j in Cars %}
+                            <option value="{{j.name}}">{{j.name}}</option>
+                        {% endfor %}
+                    </select>
+                    
+                </div>
+            </div>
+            <div class="col-xl-2 col-lg-4 col-md-6 px-2">
+                <button class="btn btn-primary btn-block mb-3" type="submit" style="height: 50px;">Compare</button>
+        </div>
+
+        </div>
+    </form>
+    <!-- Page Header Start -->
+
+
+    <!-- Detail Start -->
+    <hr class="mt-3 mx-1">
+    <hr class="mt-3 mx-1">
+    <div class="container-fluid pt-5">
+        {% for i in Cars %}
+        <div class="container pt-5 pb-3 my-3 bg-dark text-white">
+            <h1 class="display-4 text-uppercase mb-5 text-white">{{i.name}}</h1>
+            <div class="row align-items-center pb-2">
+                <div class="col-lg-6 mb-4">
+                    <img class="img-fluid" src="img/bg-banner.jpg" alt="">
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <h4 class="mb-2 text-white">Price: {{i.price}} Lacs</h4>
+                    <div class="d-flex mb-3">
+                        <h6 class="mr-2 text-white">Segment: {{i.segement}}</h6>
+                    </div>
+                    <p>{{i.year}}</p>
+                </div>
+            </div>
+            <div class="row mt-n3 mt-lg-0 pb-4">
+                <div class="col-md-3 col-6 mb-2">
+                    <i class="fa fa-car text-primary mr-2"></i>
+                    <span>Engine: {{i.engine}} litre</span>
+                </div>
+                <div class="col-md-3 col-6 mb-2">
+                    <i class="fa fa-cogs text-primary mr-2"></i>
+                    <span>Transmission: {{i.transmission}}</span>
+                </div>
+                <div class="col-md-3 col-6 mb-2">
+                    <i class="fa fa-car text-primary mr-2"></i>
+                    <span>Mileage: {{i.mileage}}km/l</span>
+                </div>
+                <div class="col-md-3 col-6 mb-2">
+                    <i class="fa fa-eye text-primary mr-2"></i>
+                    <span>Fuel Type: {{i.fueltype}}</span>
+                </div>
+                <div class="col-md-3 col-6 mb-2">
+                    <i class="fa fa-car text-primary mr-2"></i>
+                    <span>Fuel Capacity: {{i.fueltank}}litres</span>
+                </div>
+                <div class="col-md-3 col-6 mb-2">
+                    <i class="fa fa-road text-primary mr-2"></i>
+                    <span>Length: {{i.length}}mm</span>
+                </div>
+                <div class="col-md-3 col-6 mb-2">
+                    <i class="fa fa-road text-primary mr-2"></i>
+                    <span>Width: {{i.width}}mm</span>
+                </div>
+            </div>
+        </div>
+        <hr class="mt-3 mx-1">
+      
+        {% endfor %}
+    </div>
+    <!-- <div class="row">
+        <div class="col-md-6 col-lg-4">
+            <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover" alt="Card Image"></a>
+                <div class="card-body">
+                    <h6><a href="#">{{Cars.name}}</a></h6>
+                    <p class="text-muted card-text">{{Cars.price}}</p>
+                    <span>{{Cars.year}}</span><br/>
+                    <span>{{Cars.engine}}</span><br/>
+                </div>
+            </div>
+        </div>
+        
+    </div> -->
+    <!-- Detail End -->
+
+    {% endblock %}

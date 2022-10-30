@@ -1,0 +1,58 @@
+{% extends 'common.html' %}
+
+{% block content %}
+
+<div class="container-fluid pt-5">
+    {% for i in Cars %}
+    <div class="container pt-5 pb-3 my-3 bg-dark text-white">
+        <h1 class="display-4 text-uppercase mb-5 text-white">{{i.name}}</h1>
+        <div class="row align-items-center pb-2">
+            <div class="col-lg-6 mb-4">
+                <img class="img-fluid" src="img/bg-banner.jpg" alt="">
+            </div>
+            <div class="col-lg-6 mb-4">
+                <h4 class="mb-2 text-white">Price: {{i.price}} Lacs</h4>
+                <div class="d-flex mb-3">
+                    <h6 class="mr-2 text-white">Segment: {{i.segement}}</h6>
+                </div>
+                <p>{{i.year}}</p>
+            </div>
+        </div>
+        <div class="row mt-n3 mt-lg-0 pb-4">
+            <div class="col-md-3 col-6 mb-2">
+                <i class="fa fa-car text-primary mr-2"></i>
+                <span>Engine: {{i.engine}} litre</span>
+            </div>
+            <div class="col-md-3 col-6 mb-2">
+                <i class="fa fa-cogs text-primary mr-2"></i>
+                <span>Transmission: {{i.transmission}}</span>
+            </div>
+            <div class="col-md-3 col-6 mb-2">
+                <i class="fa fa-car text-primary mr-2"></i>
+                <span>Mileage: {{i.mileage}}km/l</span>
+            </div>
+            <div class="col-md-3 col-6 mb-2">
+                <i class="fa fa-eye text-primary mr-2"></i>
+                <span>Fuel Type: {{i.fueltype}}</span>
+            </div>
+            <div class="col-md-3 col-6 mb-2">
+                <i class="fa fa-car text-primary mr-2"></i>
+                <span>Fuel Capacity: {{i.fueltank}}litres</span>
+            </div>
+            <div class="col-md-3 col-6 mb-2">
+                <i class="fa fa-road text-primary mr-2"></i>
+                <span>Length: {{i.length}}mm</span>
+            </div>
+            <div class="col-md-3 col-6 mb-2">
+                <i class="fa fa-road text-primary mr-2"></i>
+                <span>Width: {{i.width}}mm</span>
+            </div>
+        </div>
+    </div>
+  
+    {% endfor %}
+</div>
+
+
+
+{% endblock %}

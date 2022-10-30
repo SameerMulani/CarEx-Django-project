@@ -1,0 +1,49 @@
+{% extends 'templates/common.html' %}
+{% load socialaccount %}
+{% providers_media_js %}
+{% load static %}
+{% block content %}
+
+<main class="page projects-page">
+    <section class="vh-100 gradient-custom">
+        <div class="container py-5 h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+              <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                <div class="card-body p-5 text-center">
+                    <form class="signup" id="signup_form" method="post" action="/accounts/signup/">
+                        <h1 class="fw-bold mb-2 text-uppercase">SIGN UP</h1>
+                        <input type="hidden" name="csrfmiddlewaretoken" value="rrEedGVkqrmvXXMtSyqvoaJ7jAJqkjWShDeTsGhfFBhacAp2AMtjivJ5xU9hJWSr">
+                        <div class="form-outline form-white mb-4">
+                            <label for="id_username">Username:</label>
+                          <input type="text" class="form-control form-control-lg" name="username"  autocomplete="username" minlength="1" maxlength="150" required="" id="id_username"> 
+                        </div>
+                        <p>
+                          <label for="id_email">E-mail (optional):</label>
+                          <input type="email" class="form-control form-control-lg" name="email" autocomplete="email" id="id_email">
+                        </p>
+                        <p>
+                          <label for="id_password1">Password:</label>
+                          <input type="password" class="form-control form-control-lg" name="password1" autocomplete="new-password" required="" id="id_password1">
+                        </p>
+                        <p>
+                          <label for="id_password2">Password (again):</label>
+                          <input type="password" class="form-control form-control-lg" name="password2"  autocomplete="new-password" required="" id="id_password2">  
+                        </p>
+                        
+                        <button class="btn btn-outline-light btn-lg px-5" type="submit">Sign Up »</button>
+                      </form>
+
+      
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+</main>
+
+    {% endblock %}
+
+

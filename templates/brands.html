@@ -1,0 +1,43 @@
+{% extends 'common.html' %}
+
+{% block content %}
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header">
+        <h1 class="display-3 text-uppercase text-white mb-3">Brands</h1>
+        <div class="d-inline-flex text-white">
+            <h6 class="text-uppercase m-0"><a class="text-white" href="">Home</a></h6>
+            <h6 class="text-body m-0 px-3">/</h6>
+            <h6 class="text-uppercase text-body m-0">Brands</h6>
+        </div>
+    </div>
+    <!-- Page Header Start -->
+    
+
+    <!-- Services Start -->
+    <div class="container-fluid py-5">
+        <div class="container pt-5 pb-3">
+            <h1 class="display-4 text-uppercase text-center mb-5">Brands</h1>
+            <div class="row">
+                {% for i in brands %}
+                <div class="col-lg-4 col-md-4 mb-2"><a href="{% url 'car_detail' i.id %}"><button type="submit">
+                    <div class="service-item d-flex flex-column justify-content-center px-4 mb-4">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <div class="d-flex align-items-center justify-content-center ml-n4" style="width: 80px; height: 80px;">
+                                <i class="fa fa-2x fa-taxi text-secondary"></i>
+                            </div>
+                        </div>
+                        <h4 class="text-uppercase mb-3 text-primary">{{i.name}}</h4>
+                        <p class="m-0">{{i.description}}</p>
+                        <hr class="mt-1 mx-1">
+                        <hr class="mt-1 mx-1">
+                        <p class="m-0 text-center">Click to Explore Cars</p>
+                    </div>
+                    </button>
+                </a> 
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- Services End -->
+    {% endblock %}
